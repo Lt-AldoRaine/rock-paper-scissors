@@ -1,6 +1,7 @@
 
 function getComputerChoice() {
     let options = Array('rock', 'paper', 'scissors');
+    // Choose rock paper or scissors randomly from array.
     computerChoice = options[Math.floor(Math.random() * options.length)];
     console.log(`Computer chose: ${computerChoice}`);
     return computerChoice;
@@ -11,7 +12,7 @@ function playerSelection() {
     console.log(`You chose: ${choice}`);
     return choice;
 }
-
+// Play a single round and determine the winner of that round.
 function playRound(playerChoice) {
     let computerPlay = getComputerChoice();
     let result;
@@ -47,5 +48,16 @@ function playRound(playerChoice) {
 }
 
 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerChoice = playerSelection();
+        const currentRound = playRound(playerChoice);
+
+        console.log(currentRound);
+    }
+}
+
+
+
 const playerChoice = playerSelection();
-console.log(playRound(playerChoice));
+console.log(game());
