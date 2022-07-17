@@ -1,18 +1,19 @@
 // define scores
 let playerScore = 0; 
 let computerScore = 0;
+let tieScore = 0;
 
 // define game conditions
 const win = 'You won this round';
 const lose = 'You lost this round';
 const tie = 'This round is a tie';
 
-const playerChoice = playerSelection();
+// const playerChoice = playerSelection();
 
 function getComputerChoice() {
     let options = Array('rock', 'paper', 'scissors');
     // Choose rock paper or scissors randomly from array.
-    computerChoice = options[Math.floor(Math.random() * options.length)];
+    let computerChoice = options[Math.floor(Math.random() * options.length)];
     console.log(`Computer chose: ${computerChoice}`);
     return computerChoice;
 }
@@ -29,6 +30,7 @@ function playRound(playerChoice) {
 
     if (playerChoice === computerPlay) {
         result = tie;
+        tieScore++;
         return result;
     } else if (playerChoice === 'rock') {
         if (computerPlay === 'paper') {
@@ -63,7 +65,7 @@ function playRound(playerChoice) {
     }
 }
 
-
+// Play 5 rounds of the game
 function game() {
     for (let i = 0; i < 5; i++) {
         const playerChoice = playerSelection();
@@ -73,6 +75,12 @@ function game() {
     }
 }
 
-console.log(game());
-
-console.log(`You won ${playerScore} rounds and lost ${computerScore} rounds.`);
+game();
+if (playerScore > computerScore) {
+    console.log('You win the game!')
+} else if (playerScore < computerScore) {
+    console.log('You lose the game. :(')
+} else {
+    console.log('The game is a tie.')
+}
+console.log(`You won ${playerScore} rounds, lost ${computerScore} rounds, and tied ${tieScore} rounds.`);
