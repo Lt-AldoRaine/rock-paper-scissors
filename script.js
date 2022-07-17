@@ -26,41 +26,33 @@ function playerSelection() {
 // Play a single round and determine the winner of that round.
 function playRound(playerChoice) {
     let computerPlay = getComputerChoice();
-    let result;
 
     if (playerChoice === computerPlay) {
-        result = tie;
         tieScore++;
-        return result;
+        return tie;
     } else if (playerChoice === 'rock') {
         if (computerPlay === 'paper') {
-            result = lose;
             computerScore++;
-            return result;
+            return lose;
         } else {
-            result = win;
             playerScore++;
-            return result;
+            return win;
         }
     } else if (playerChoice === 'paper') {
         if (computerPlay === 'rock') {
-            result = win;
             playerScore++;
-            return result;
+            return win;
         } else {
-            result = lose;
             computerScore++;
-            return result;
+            return lose;
         }
     } else if (playerChoice === 'scissors') {
         if (computerPlay === 'paper') {
-            result = win;
             playerScore++;
-            return result;
+            return win;
         } else {
-            result = lose;
             computerScore++;
-            return result;
+            return lose;
         }
     }
 }
