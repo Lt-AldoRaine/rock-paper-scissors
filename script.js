@@ -1,3 +1,13 @@
+// define scores
+let playerScore = 0; 
+let computerScore = 0;
+
+// define game conditions
+const win = 'You won this round';
+const lose = 'You lost this round';
+const tie = 'This round is a tie';
+
+const playerChoice = playerSelection();
 
 function getComputerChoice() {
     let options = Array('rock', 'paper', 'scissors');
@@ -18,30 +28,36 @@ function playRound(playerChoice) {
     let result;
 
     if (playerChoice === computerPlay) {
-        result = 'Tie';
+        result = tie;
         return result;
     } else if (playerChoice === 'rock') {
         if (computerPlay === 'paper') {
-            result = 'Lose';
+            result = lose;
+            computerScore++;
             return result;
         } else {
-            result = 'Win';
+            result = win;
+            playerScore++;
             return result;
         }
     } else if (playerChoice === 'paper') {
         if (computerPlay === 'rock') {
-            result = 'Win';
+            result = win;
+            playerScore++;
             return result;
         } else {
-            result = 'Lose';
+            result = lose;
+            computerScore++;
             return result;
         }
     } else if (playerChoice === 'scissors') {
         if (computerPlay === 'paper') {
-            result = 'Win';
+            result = win;
+            playerScore++;
             return result;
         } else {
-            result = 'Lose';
+            result = lose;
+            computerScore++;
             return result;
         }
     }
@@ -57,7 +73,6 @@ function game() {
     }
 }
 
-
-
-const playerChoice = playerSelection();
 console.log(game());
+
+console.log(`You won ${playerScore} rounds and lost ${computerScore} rounds.`);
