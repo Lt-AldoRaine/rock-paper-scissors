@@ -1,0 +1,39 @@
+*, *::before, *::after {
+    font-family: roboto, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(to right, #4887ab, #48ab8d);
+}
+
+button {
+    width: 15vh;
+    height: 15vh;
+    background-color: rgba(74, 109, 221, 0.534);
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#buttons {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 75px;
+}
+
+#container {
+    margin: auto;
+    width: 50vh;
+    height: auto;
+    margin-top: 25px;
+    border: solid 2px;
+}
+
+.rock, .paper, .scissors {
+    color: rgb(59, 171, 190);
+}
