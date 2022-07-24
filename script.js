@@ -60,7 +60,7 @@ function playRound(playerChoice) {
 // Play 5 rounds of the game
 function game() {
     for (let i = 0; i < 5; i++) {
-        const playerChoice = playerSelection();
+        const playerChoice = getPlayerSelection();
         const currentRound = playRound(playerChoice);
 
         console.log(currentRound);
