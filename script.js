@@ -8,7 +8,7 @@ const win = 'You won this round';
 const lose = 'You lost this round';
 const tie = 'This round is a tie';
 
-// const playerChoice = playerSelection();
+const playerChoice = playerSelection();
 
 function getComputerChoice() {
     let options = Array('rock', 'paper', 'scissors');
