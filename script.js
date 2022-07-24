@@ -30,35 +30,6 @@ const playerChoice = () => {
     }
 };
 
-function clickRock() {
-    rock.addEventListener('click', (e) => {
-        console.log('You chose rock')
-        e.stopPropagation();
-    }, { once: true });
-
-};
-
-function clickPaper() {
-    paper.addEventListener('click', (e) => {
-        console.log('You chose paper');
-        e.stopPropagation();
-        return 'paper'
-    }, { once: true });
-};
-
-function clickScissors() {
-    scissors.addEventListener('click', (e) => {
-        console.log('You chose scissors');
-        e.stopPropagation();
-    }, { once: true });
-};
-
-const getWinner = () => {
-    if (playerScore === computerScore) {
-        return tie;
-    }
-}
-
 
 function playRound() {
     let computerPlay = computerChoice();
