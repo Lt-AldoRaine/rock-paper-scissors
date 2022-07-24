@@ -31,7 +31,11 @@ button {
     width: 50vh;
     height: auto;
     margin-top: 25px;
-    border: solid 2px;
+    border: solid rgba(74, 109, 221, 0.534);
+    text-align: center;
+    color:rgb(59, 171, 190);
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .rock, .paper, .scissors {
