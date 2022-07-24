@@ -18,27 +18,33 @@ const playerChoice = () => {
     let choice;
 
     if (choice = clickRock()) {
-        return 'rock'
-    } else return 'Please choose.'
+        return 'rock';
+    } else if (choice = clickPaper()) {
+        return 'paper';
+    } else if (choice = clickScissors()) {
+        return 'scissors';
+    } else return 'Please choose';
 };
 
 function clickRock() {
-    rock.addEventListener('click', () => {
+    rock.addEventListener('click', (e) => {
         console.log('You chose rock')
-    });
+        e.stopPropagation();
+    }, {capture: true});
+    
 };
 
 function clickPaper() {
-    rock.addEventListener('click', () => {
-        console.log(`You chose paper`);
-        return 'paper'
+    paper.addEventListener('click', (e) => {
+        console.log('You chose paper');
+        e.stopPropagation();
     });
 };
 
 function clickScissors() {
-    rock.addEventListener('click', () => {
-        console.log(`You chose scissors`);
-        return 'scissors'
+    scissors.addEventListener('click', (e) => {
+        console.log('You chose scissors');
+        e.stopPropagation();
     });
 };
 
