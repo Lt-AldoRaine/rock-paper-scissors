@@ -9,16 +9,23 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="buttons">
+    <div class="selections">
         <button id="choices" data-choice="rock">Rock</button>
         <button id="choices" data-choice="paper">Paper</button>
         <button id="choices" data-choice="scissors">Scissors</button>
     </div>
     
-    <div id = 'container'>Score: </div>
+    <div id = 'results'>
+        <div>
+            Player
+            <span class="result-score" data-player-score>0</span>
+        </div>
+        <div data-final-column>
+            Computer
+            <span class="result-score" data-computer-score>0</span>
+        </div>
+    </div>
 
-    <div id="selections"></div>
-
-    <div id="winner"></div>
+    </div>
 </body>
 </html>
