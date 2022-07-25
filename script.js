@@ -25,7 +25,6 @@ choiceButton.forEach(choiceButton => {
     })
 })
 
-<<<<<<< HEAD
 function playRound(choice) {
     const computerChoice = getComputerChoice();
     const youWin = getWinner(choice, computerChoice);
@@ -49,9 +48,6 @@ function getChoiceResult(choice, winner) {
     if (winner) div.classList.add('winner');
     finalColumn.after(div);
 }
-=======
-const playerChoice = getPlayerSelection();
->>>>>>> f69aec18340f9da846e327dfceee5ef16b6c8788
 
 function getComputerChoice() {
     const computerChoice = Math.floor(Math.random() * CHOICES.length)
@@ -62,25 +58,5 @@ function getWinner(choice, opponentChoice) {
     return choice.beats === opponentChoice.name;
 }
 
-<<<<<<< HEAD
-=======
-// Play 5 rounds of the game
-function game() {
-    for (let i = 0; i < 5; i++) {
-        const playerChoice = getPlayerSelection();
-        const currentRound = playRound(playerChoice);
->>>>>>> f69aec18340f9da846e327dfceee5ef16b6c8788
 
 
-<<<<<<< HEAD
-=======
-game();
-if (playerScore > computerScore) {
-    console.log('You win the game!')
-} else if (playerScore < computerScore) {
-    console.log('You lose the game. :(')
-} else {
-    console.log('The game is a tie.')
-}
-console.log(`You won ${playerScore} rounds, lost ${computerScore} rounds, and tied ${tieScore} rounds.`);
->>>>>>> f69aec18340f9da846e327dfceee5ef16b6c8788
