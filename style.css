@@ -16,28 +16,44 @@ button {
     border: none;
     font-size: 25px;
     font-weight: bold;
+    color: rgb(59, 171, 190);
 }
 
-#buttons {
-    margin-top: 100px;
+.selections {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-content: center;
     gap: 75px;
 }
 
-#container {
-    margin: auto;
-    width: 50vh;
-    height: auto;
-    margin-top: 25px;
-    border: solid rgba(74, 109, 221, 0.534);
-    text-align: center;
-    color:rgb(59, 171, 190);
-    font-size: 30px;
-    font-weight: bold;
+#results {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
 }
 
-.rock, .paper, .scissors {
-    color: rgb(59, 171, 190);
+.computer, .player {
+    font-size: 30px;
+    font-weight: bolder;
+    color: aquamarine;
+}
+
+.result-choice {
+    opacity: .7;
+    color: yellow
+}
+
+.result-score {
+    color: aquamarine;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.result-selection.winner {
+    color: green;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
