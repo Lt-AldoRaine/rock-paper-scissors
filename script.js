@@ -1,8 +1,21 @@
-const rock = document.querySelector('.rock');
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
+const choiceButton = document.querySelectorAll('[data-choice]')
 const container = document.querySelector('#container');
 const winnerContainer = document.querySelector('#winner')
+const selections = document.querySelector('#selections')
+const CHOICES = [
+    {
+        name: 'rock',
+        beats: 'scissors'
+    },
+    {
+        name: 'scissors', 
+        beats: 'paper'
+    },
+    {
+        name: 'paper', 
+        beats: 'rock'
+    }
+];
 
 const win = 'You win the game!';
 const lose = 'You lost to a computer. :(';
@@ -11,61 +24,36 @@ const tie = 'The game is a tie';
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
-
-const computerChoice = () => {
-    const rps = [{choice: 'rock', value : 0}, {choice: 'paper', value: 1}, {choice: 'scissors', value: 2}];
-    const choice = rps[Math.floor(Math.random() * rps.length)];
-    return choice;
-};
-
-const playerChoice = () => {
-    let choice;
-
-    if (choice = clickRock()) {
-        return 0;
-    } else if (choice = clickPaper()) {
-        return 1;
-    } else if (choice = clickScissors()) {
-        return 2;
-    }
-};
+let playerChoice;
 
 
-function playRound() {
-    let computerPlay = computerChoice();
-    let player = playerChoice();
+choiceButton.forEach(choiceButton => {
+    choiceButton.addEventListener('click', e => {
+        const choiceName = choiceButton.dataset.choice;
+        const choice = CHOICES.find(choice => choice.name === choiceName)
+        playRound(choice)
+    })
+})
 
-    if (player === computerPlay) {
-        tieScore++;
-        container.append(`${playerScore} to ${computerScore}`)
-    } else if (player === 'rock') {
-        if (computerPlay === 'paper') {
-            computerScore++;
-            container.append(`${playerScore} to ${computerScore}`)
-        } else {
-            playerScore++;
-            container.append(`${playerScore} to ${computerScore}`)
-        }
-    } else if (player === 'paper') {
-        if (computerPlay === 'rock') {
-            playerScore++;
-            container.append(`${playerScore} to ${computerScore}`)
-        } else {
-            computerScore++;
-            container.append(`${playerScore} to ${computerScore}`)
-        }
-    } else if (player === 'scissors') {
-        if (computerPlay === 'paper') {
-            playerScore++;
-            container.append(`${playerScore} to ${computerScore}`)
-        } else {
-            computerScore++;
-            container.append(`${playerScore} to ${computerScore}`)
-        }
-    }
-    getWinner();
+function getChoiceResult(choice, winner) {
+
+}
+
+function getComputerChoice() {
+    const computerChoice = Math.floor(Math.random() * CHOICES.length)
+    return CHOICES[computerChoice]
+}
+
+function getWinner(choice, computerChoice) {
+    return choice.beats === computerChoice.name;
 }
 
 
+function playRound(choice) {
+    const computerChoice = getComputerChoice;
+    const youWin = getWinner(choice, computerChoice);
+    const computerWin = getWinner(computerChoice, choice);
 
-playRound();
+    getChoiceResult(computerChoice, computerWin)
+    getChoiceResult(choice, youWin)
+}
