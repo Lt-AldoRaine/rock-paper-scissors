@@ -1,7 +1,7 @@
 const choiceButton = document.querySelectorAll('[data-choice]')
-const container = document.querySelector('#container');
-const winnerContainer = document.querySelector('#winner')
-const selections = document.querySelector('#selections')
+const finalColumn = document.querySelector('[data-final-column')
+const computerScore = document.querySelector('[data-computer-score]')
+const playerScore = document.querySelector('[data-player-score]')
 const CHOICES = [
     {
         name: 'rock',
@@ -17,16 +17,6 @@ const CHOICES = [
     }
 ];
 
-const win = 'You win the game!';
-const lose = 'You lost to a computer. :(';
-const tie = 'The game is a tie';
-
-let playerScore = 0;
-let computerScore = 0;
-let tieScore = 0;
-let playerChoice;
-
-
 choiceButton.forEach(choiceButton => {
     choiceButton.addEventListener('click', e => {
         const choiceName = choiceButton.dataset.choice;
@@ -35,8 +25,28 @@ choiceButton.forEach(choiceButton => {
     })
 })
 
-function getChoiceResult(choice, winner) {
+function playRound(choice) {
+    const computerChoice = getComputerChoice();
+    const youWin = getWinner(choice, computerChoice);
+    const computerWin = getWinner(computerChoice, choice);
 
+    getChoiceResult(computerChoice, computerWin)
+    getChoiceResult(choice, youWin)
+
+    if (youWin) incrementScore(playerScore);
+    if (computerWin) incrementScore(computerScore);
+}
+
+function incrementScore(score) {
+    score.innerText = parseInt(score.innerText) + 1
+}
+
+function getChoiceResult(choice, winner) {
+    const div = document.createElement('div')
+    div.innerText = choice.name
+    div.classList.add('result-choice');
+    if (winner) div.classList.add('winner');
+    finalColumn.after(div);
 }
 
 function getComputerChoice() {
@@ -44,16 +54,9 @@ function getComputerChoice() {
     return CHOICES[computerChoice]
 }
 
-function getWinner(choice, computerChoice) {
-    return choice.beats === computerChoice.name;
+function getWinner(choice, opponentChoice) {
+    return choice.beats === opponentChoice.name;
 }
 
 
-function playRound(choice) {
-    const computerChoice = getComputerChoice;
-    const youWin = getWinner(choice, computerChoice);
-    const computerWin = getWinner(computerChoice, choice);
 
-    getChoiceResult(computerChoice, computerWin)
-    getChoiceResult(choice, youWin)
-}
